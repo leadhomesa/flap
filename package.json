@@ -5,9 +5,14 @@
   "main": "src/index.ts",
   "scripts": {
     "build": "webpack --mode production --config webpack/config.js",
-    "start": "webpack-dev-server --progress --config webpack/dev.config.js"
+    "start": "webpack-dev-server --progress --config webpack/dev.config.js",
+    "deploy": "gh-pages -d build"
   },
-  "author": "Francois Laubscher",
+  "author": "Leadhome",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leadhomesa/flap.git"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/webpack-env": "^1.14.0",
@@ -25,6 +30,7 @@
   "dependencies": {
     "copy-webpack-plugin": "^5.0.4",
     "dotenv": "^8.1.0",
+    "gh-pages": "^2.1.1",
     "phaser": "^3.16.2"
   }
 }

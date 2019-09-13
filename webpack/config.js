@@ -6,7 +6,7 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 const path = require("path");
 
 const publicPath = process.env.PUBLIC_URL || "/";
-const buildPath = path.join(__dirname, "..", "dist");
+const buildPath = path.join(__dirname, "..", "build");
 const assetsPath = path.join(__dirname, "..", "src", "assets");
 
 module.exports = {
@@ -42,7 +42,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(["dist"], {
+    new CleanWebpackPlugin(["build"], {
       root: path.resolve(__dirname, "../")
     }),
     new CopyWebpackPlugin([
