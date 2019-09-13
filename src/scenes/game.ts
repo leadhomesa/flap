@@ -54,6 +54,12 @@ class GameScene extends Phaser.Scene {
     });
     this.physics.add.collider(this._player, this._world);
 
+    this.input.on('pointerdown', () => {
+      if (this._player) {
+        this._player.speedUp();
+      }
+    });
+
     // camera
     if (this._player) {
       this.cameras.main.startFollow(this._player);
