@@ -1,13 +1,13 @@
-require("dotenv").config();
-const config = require("./config");
+require('dotenv').config();
+const config = require('./config');
 
 const port = process.env.PORT || 3000;
 
 module.exports = Object.assign(
   {
-    mode: "development",
+    mode: 'development',
     devServer: {
-      stats: "minimal",
+      stats: 'minimal',
       hot: false,
       port,
       writeToDisk: true,

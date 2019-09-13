@@ -1,14 +1,14 @@
-import Phaser from "phaser";
+import Phaser from 'phaser';
 
 import AnimationHelper from '../helpers/animation-helper';
-import Colors from "../colors";
+import Colors from '../colors';
 
 class BootScene extends Phaser.Scene {
   private _loadingBar: Phaser.GameObjects.Graphics | undefined;
   private _progressBar: Phaser.GameObjects.Graphics | undefined;
 
   constructor() {
-    super({ key: "BootScene" });
+    super({ key: 'BootScene' });
   }
 
   private createLoadingGraphics(): void {
@@ -25,9 +25,9 @@ class BootScene extends Phaser.Scene {
   }
 
   preload(): void {
-    const banner = document.getElementById("bannerText");
+    const banner = document.getElementById('bannerText');
     if (banner) {
-      banner.innerText = "Loading!";
+      banner.innerText = 'Loading!';
     }
 
     this.cameras.main.setBackgroundColor(Colors.storm);
@@ -35,7 +35,7 @@ class BootScene extends Phaser.Scene {
 
     // pass value to change the loading bar fill
     this.load.on(
-      "progress",
+      'progress',
       (value: number) => {
         if (this._progressBar) {
           this._progressBar.clear();
@@ -53,9 +53,12 @@ class BootScene extends Phaser.Scene {
 
     // delete bar graphics, when loading complete
     this.load.on(
-      "complete",
+      'complete',
       () => {
-        const helper = new AnimationHelper(this, this.cache.json.get('animationJson'));
+        const helper = new AnimationHelper( // eslint-disable-line
+          this,
+          this.cache.json.get('animationJson')
+        );
         if (this._progressBar && this._loadingBar) {
           this._progressBar.destroy();
           this._loadingBar.destroy();
@@ -65,11 +68,11 @@ class BootScene extends Phaser.Scene {
     );
 
     // load our package
-    this.load.pack("assets", "/game/pack.json");
+    this.load.pack('assets', '/game/pack.json');
   }
 
   update(): void {
-    this.scene.start("GameScene");
+    this.scene.start('GameScene');
   }
 }
 

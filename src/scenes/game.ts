@@ -1,12 +1,12 @@
-import Phaser from "phaser";
+import Phaser from 'phaser';
 
 // objects
-import World from "../objects/world";
-import Player from "../objects/player";
-import Enemy from "../objects/enemy";
+import World from '../objects/world';
+import Player from '../objects/player';
+import Enemy from '../objects/enemy';
 
 // helpers
-import { getWorldWidth } from "../helpers/world-width";
+import { getWorldWidth } from '../helpers/world-width';
 
 class GameScene extends Phaser.Scene {
   private _world: World | undefined;
@@ -14,7 +14,7 @@ class GameScene extends Phaser.Scene {
   private _enemies: Enemy[];
 
   constructor() {
-    super({ key: "GameScene" });
+    super({ key: 'GameScene' });
 
     this._enemies = [];
   }
@@ -22,7 +22,7 @@ class GameScene extends Phaser.Scene {
   init(): void {}
 
   private createBackground(x: number): void {
-    const background = this.add.image(x, window.innerHeight, "background");
+    const background = this.add.image(x, window.innerHeight, 'background');
     background.setOrigin(0, 1);
     background.displayHeight = window.innerHeight;
     background.displayWidth = window.innerWidth;
@@ -38,10 +38,10 @@ class GameScene extends Phaser.Scene {
   }
 
   preload(): void {
-    const banner = document.getElementById("bannerText");
+    const banner = document.getElementById('bannerText');
     if (banner) {
       const isMobile = window.innerWidth <= 1024;
-      banner.innerText = isMobile ? "Tap the screen!" : "Press space bar!";
+      banner.innerText = isMobile ? 'Tap the screen!' : 'Press space bar!';
     }
   }
 
@@ -69,17 +69,17 @@ class GameScene extends Phaser.Scene {
       scene: this,
       x: 0,
       y: window.innerHeight - this._world.height,
-      key: "leadhomie"
+      key: 'leadhomie'
     });
     this.physics.add.collider(this._player, this._world);
 
-    this.input.on("pointerdown", () => {
+    this.input.on('pointerdown', () => {
       if (this._player) {
         this._player.speedUp();
       }
     });
 
-    this.input.keyboard.on("keydown", () => {
+    this.input.keyboard.on('keydown', () => {
       if (this._player) {
         this._player.speedUp();
       }
@@ -99,7 +99,7 @@ class GameScene extends Phaser.Scene {
 
       if (this._world) {
         if (this._player.x >= this._world.width) {
-          this.scene.start("ScoreScene");
+          this.scene.start('ScoreScene');
         }
       }
     }

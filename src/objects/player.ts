@@ -1,4 +1,4 @@
-import Phaser from "phaser";
+import Phaser from 'phaser';
 
 interface PlayerOptions {
   scene: Phaser.Scene;
@@ -58,14 +58,14 @@ class Player extends Phaser.GameObjects.Sprite {
       // player is running
 
       if (physicsBody.velocity.x > 0) {
-        this.anims.play("leadhomie-run", true);
+        this.anims.play('leadhomie-run', true);
       }
     } else {
       if (!this._done) {
         this.anims.stop();
         this.setFrame(STILL_FRAME);
       } else {
-        this.anims.play("leadhomie-won", true);
+        this.anims.play('leadhomie-won', true);
       }
     }
   }

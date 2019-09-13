@@ -2,9 +2,9 @@ import Game from './game';
 
 if (module.hot) {
   module.hot.accept(() => {
-    const NewGame = require("./game.ts").default;
-    new NewGame();
+    const HMRGame = require('./game.ts').default;
+    const hmrGame = new HMRGame(); // eslint-disable-line
   });
 }
 
-new Game();
+const game = new Game(); // eslint-disable-line

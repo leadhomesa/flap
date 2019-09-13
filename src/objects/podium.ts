@@ -1,5 +1,5 @@
-import Phaser from "phaser";
-import Colors from "../colors";
+import Phaser from 'phaser';
+import Colors from '../colors';
 
 interface PodiumOptions {
   scene: Phaser.Scene;
@@ -28,10 +28,10 @@ class Podium extends Phaser.GameObjects.Rectangle {
     const width =
       window.innerWidth >= MAX_WIDTH ? MAX_WIDTH : window.innerWidth;
     const height = Math.floor(width * 0.27);
-    const x = width === window.innerWidth ? 0 : (width / 4);
+    const x = width === window.innerWidth ? 0 : width / 4;
 
     if (this._currentScene) {
-      const podium = this._currentScene.add.image(x, this.y, "podium");      
+      const podium = this._currentScene.add.image(x, this.y, 'podium');
       podium.setOrigin(0, 1);
       podium.displayHeight = height;
       podium.displayWidth = width;

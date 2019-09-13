@@ -1,16 +1,16 @@
-import Phaser from "phaser";
+import Phaser from 'phaser';
 
 // scenes
-import BootScene from "./scenes/boot";
-import GameScene from "./scenes/game";
-import ScoreScene from "./scenes/score";
+import BootScene from './scenes/boot';
+import GameScene from './scenes/game';
+import ScoreScene from './scenes/score';
 
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
   width: window.innerWidth,
   height: window.innerHeight,
   physics: {
-    default: "arcade",
+    default: 'arcade',
     arcade: {
       gravity: { y: 200 }
     }
