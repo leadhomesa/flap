@@ -30,6 +30,13 @@ class ScoreScene extends Phaser.Scene {
     background.displayWidth = window.innerWidth;
   }
 
+  private createParticles(): void {
+    const particles = this.add.particles('leadhome');
+    const emitter = particles.createEmitter({});
+    emitter.setPosition(window.innerWidth / 2, window.innerHeight / 4);
+    emitter.setSpeed(200);
+  }
+
   create(): void {
     // background
     this.createBackground();
@@ -51,6 +58,9 @@ class ScoreScene extends Phaser.Scene {
       done: true
     });
     this.physics.add.collider(this._player, this._podium);
+
+    // particles
+    this.createParticles();
 
     this.cameras.main.setBounds(0, 0, this._world.width, window.innerHeight);
   }

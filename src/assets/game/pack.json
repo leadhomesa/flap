@@ -3,6 +3,11 @@
     "files": [
       {
         "type": "image",
+        "key": "leadhome",
+        "url": "/favicon-32x32.png"
+      },
+      {
+        "type": "image",
         "key": "cloud",
         "url": "/game/cloud.png"
       },
