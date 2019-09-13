@@ -1,0 +1,30 @@
+{
+  "preload": {
+    "files": [
+      {
+        "type": "image",
+        "key": "cloud",
+        "url": "/assets/cloud.png"
+      },
+      {
+        "type": "image",
+        "key": "background",
+        "url": "/assets/buildings.png"
+      },
+      {
+        "type": "json",
+        "key": "animationJson",
+        "url": "/assets/animations.json"
+      },
+      {
+        "type": "spritesheet",
+        "key": "leadhomie",
+        "url": "/assets/leadhomie.png",
+        "frameConfig": {
+          "frameWidth": 256,
+          "frameHeight": 256
+        }
+      }
+    ]
+  }
+}
