@@ -1,10 +1,43 @@
 {
   "anims": [
     {
-      "key": "PlayerRun",
+      "key": "leadhomie-run",
       "frames": {
         "typeOfGeneration": "generateFrameNumbers",
         "key": "leadhomie",
+        "start": 1,
+        "end": 14
+      },
+      "repeat": -1,
+      "frameRate": 30
+    },
+    {
+      "key": "sign-1-run",
+      "frames": {
+        "typeOfGeneration": "generateFrameNumbers",
+        "key": "sign-1",
+        "start": 1,
+        "end": 14
+      },
+      "repeat": -1,
+      "frameRate": 30
+    },
+    {
+      "key": "sign-2-run",
+      "frames": {
+        "typeOfGeneration": "generateFrameNumbers",
+        "key": "sign-2",
+        "start": 1,
+        "end": 14
+      },
+      "repeat": -1,
+      "frameRate": 30
+    },
+    {
+      "key": "sign-3-run",
+      "frames": {
+        "typeOfGeneration": "generateFrameNumbers",
+        "key": "sign-3",
         "start": 1,
         "end": 14
       },
