@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "copy-webpack-plugin": "^5.0.4",
+    "dotenv": "^8.1.0",
     "phaser": "^3.16.2"
   }
 }

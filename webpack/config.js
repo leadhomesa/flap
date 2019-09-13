@@ -1,9 +1,11 @@
+require("dotenv").config();
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const path = require("path");
 
+const publicPath = process.env.PUBLIC_URL || "/";
 const buildPath = path.join(__dirname, "..", "dist");
 const assetsPath = path.join(__dirname, "..", "src", "assets");
 
@@ -51,7 +53,8 @@ module.exports = {
       WEBGL_RENDERER: JSON.stringify(true)
     }),
     new HtmlWebpackPlugin({
-      template: "./src/index.html"
+      template: "./src/index.html",
+      publicPath
     })
   ]
 };
