@@ -5,6 +5,9 @@ import World from "../objects/world";
 import Player from "../objects/player";
 import Enemy from "../objects/enemy";
 
+// helpers
+import { getWorldWidth } from '../helpers/world-width';
+
 class GameScene extends Phaser.Scene {
   private _world: World | undefined;
   private _player: Player | undefined;
@@ -18,20 +21,18 @@ class GameScene extends Phaser.Scene {
 
   init(): void {}
 
-  private createBackground(x?: number): void {
-    const background = this.add.image(x || 0, window.innerHeight, "background");
+  private createBackground(x: number): void {
+    const background = this.add.image(x, window.innerHeight, "background");
     background.setOrigin(0, 1);
     background.displayHeight = window.innerHeight;
     background.displayWidth = window.innerWidth;
   }
 
   private createBackgrounds():void {
-    const minWidth = 1280;
-    const width = window.innerWidth * 2;
-    const mapWidth = width < minWidth ? minWidth : width;
+    const worldWidth = getWorldWidth();
+    const numberOfBackgrounds = Math.ceil(worldWidth / window.innerWidth);
 
-    const numberOfBackgrounds = mapWidth % window.innerWidth;
-    for (let index = 0; index < numberOfBackgrounds; index++) {
+    for (let index = 0; index <= numberOfBackgrounds; index++) {
       this.createBackground(index * window.innerWidth);      
     }
   }
@@ -47,7 +48,7 @@ class GameScene extends Phaser.Scene {
     for (let index = 0; index < 3; index++) {
       const enemy = new Enemy({
         scene: this,
-        x: Math.random() * 10,
+        x: Math.random() * 200,
         y: window.innerHeight - this._world.height,
         key: `sign-${index + 1}`
       });
@@ -84,10 +85,6 @@ class GameScene extends Phaser.Scene {
     }
 
     this._enemies.forEach(enemy => enemy.update());
-
-    if (this._world) {
-      this._world.update();
-    }
   }
 }
 
