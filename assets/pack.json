@@ -4,22 +4,22 @@
       {
         "type": "image",
         "key": "cloud",
-        "url": "/assets/cloud.png"
+        "url": "/flap/assets/cloud.png"
       },
       {
         "type": "image",
         "key": "background",
-        "url": "/assets/buildings.png"
+        "url": "/flap/assets/buildings.png"
       },
       {
         "type": "json",
         "key": "animationJson",
-        "url": "/assets/animations.json"
+        "url": "/flap/assets/animations.json"
       },
       {
         "type": "spritesheet",
         "key": "leadhomie",
-        "url": "/assets/leadhomie.png",
+        "url": "/flap/assets/leadhomie.png",
         "frameConfig": {
           "frameWidth": 256,
           "frameHeight": 256
