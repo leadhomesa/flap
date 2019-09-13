@@ -3,13 +3,17 @@ import Phaser from "phaser";
 // objects
 import World from "../objects/world";
 import Player from "../objects/player";
+import Enemy from "../objects/enemy";
 
 class GameScene extends Phaser.Scene {
   private _world: World | undefined;
   private _player: Player | undefined;
+  private _enemies: Enemy[];
 
   constructor() {
     super({ key: "GameScene" });
+
+    this._enemies = [];
   }
 
   init(): void {}
@@ -25,8 +29,21 @@ class GameScene extends Phaser.Scene {
     // background
     this.createBackground();
     this.createBackground(window.innerWidth);
+
     // world
     this._world = new World(this);
+
+    // create enemies
+    for (let index = 0; index < 3; index++) {
+      const enemy = new Enemy({
+        scene: this,
+        x: Math.random() * 10,
+        y: window.innerHeight - this._world.height,
+        key: `sign-${index + 1}`
+      });
+      this.physics.add.collider(enemy, this._world);
+      this._enemies.push(enemy);
+    }
 
     // player
     this._player = new Player({
@@ -35,8 +52,6 @@ class GameScene extends Phaser.Scene {
       y: window.innerHeight - this._world.height,
       key: "leadhomie"
     });
-
-    // colliders
     this.physics.add.collider(this._player, this._world);
 
     // camera
@@ -51,6 +66,8 @@ class GameScene extends Phaser.Scene {
     if (this._player) {
       this._player.update();
     }
+
+    this._enemies.forEach(enemy => enemy.update());
 
     if (this._world) {
       this._world.update();

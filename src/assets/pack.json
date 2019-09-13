@@ -24,6 +24,33 @@
           "frameWidth": 256,
           "frameHeight": 256
         }
+      },
+      {
+        "type": "spritesheet",
+        "key": "sign-1",
+        "url": "/assets/sign-1.png",
+        "frameConfig": {
+          "frameWidth": 256,
+          "frameHeight": 256
+        }
+      },
+      {
+        "type": "spritesheet",
+        "key": "sign-2",
+        "url": "/assets/sign-2.png",
+        "frameConfig": {
+          "frameWidth": 256,
+          "frameHeight": 256
+        }
+      },
+      {
+        "type": "spritesheet",
+        "key": "sign-3",
+        "url": "/assets/sign-3.png",
+        "frameConfig": {
+          "frameWidth": 256,
+          "frameHeight": 256
+        }
       }
     ]
   }

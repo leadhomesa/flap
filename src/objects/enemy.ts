@@ -13,13 +13,16 @@ class Player extends Phaser.GameObjects.Sprite {
   // variables
   private _currentScene: Phaser.Scene;
   private _acceleration = 500;
-  private _runKey: Phaser.Input.Keyboard.Key;
+  private _maxVelocity: number;
+  private _key: string;
 
   constructor({ scene, x, y, key }: PlayerOptions) {
     super(scene, x, y, key, STILL_FRAME);
 
+    const speedVariant = Math.random() * 50;
+    this._maxVelocity = 375 - speedVariant;
+    this._key = key;
     this._currentScene = scene;
-    this._runKey = this.addKey("SPACE");
     this.initSprite();
     this._currentScene.add.existing(this);
   }
@@ -31,27 +34,21 @@ class Player extends Phaser.GameObjects.Sprite {
 
     // physics
     this._currentScene.physics.world.enable(this);
-    (this.body as Phaser.Physics.Arcade.Body).maxVelocity.x = 500;
-  }
-
-  private addKey(key: string): Phaser.Input.Keyboard.Key {
-    return this._currentScene.input.keyboard.addKey(key);
+    (this.body as Phaser.Physics.Arcade.Body).maxVelocity.x = this._maxVelocity;
+    setTimeout(() => {
+      this.move();
+    }, 500);
   }
 
   update(): void {
-    this.handleInput();
     this.handleAnimations();
   }
 
-  private handleInput() {
-    if (this._runKey && this._runKey.isDown) {
-      (this.body as Phaser.Physics.Arcade.Body).setAccelerationX(
-        this._acceleration
-      );
-    } else {
-      (this.body as Phaser.Physics.Arcade.Body).setVelocityX(0);
-      (this.body as Phaser.Physics.Arcade.Body).setAccelerationX(0);
-    }
+  private move(): void {
+    (this.body as Phaser.Physics.Arcade.Body).setVelocityX(this._acceleration);
+    (this.body as Phaser.Physics.Arcade.Body).setAccelerationX(
+      this._acceleration
+    );
   }
 
   private handleAnimations(): void {
@@ -60,7 +57,7 @@ class Player extends Phaser.GameObjects.Sprite {
       // player is running
 
       if (physicsBody.velocity.x > 0) {
-        this.anims.play("leadhomie-run", true);
+        this.anims.play(`${this._key}-run`, true);
       }
     } else {
       // mario is standing still
