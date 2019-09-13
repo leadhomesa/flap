@@ -6,7 +6,7 @@ import Player from "../objects/player";
 import Enemy from "../objects/enemy";
 
 // helpers
-import { getWorldWidth } from '../helpers/world-width';
+import { getWorldWidth } from "../helpers/world-width";
 
 class GameScene extends Phaser.Scene {
   private _world: World | undefined;
@@ -28,12 +28,12 @@ class GameScene extends Phaser.Scene {
     background.displayWidth = window.innerWidth;
   }
 
-  private createBackgrounds():void {
+  private createBackgrounds(): void {
     const worldWidth = getWorldWidth();
     const numberOfBackgrounds = Math.ceil(worldWidth / window.innerWidth);
 
     for (let index = 0; index <= numberOfBackgrounds; index++) {
-      this.createBackground(index * window.innerWidth);      
+      this.createBackground(index * window.innerWidth);
     }
   }
 
@@ -65,7 +65,13 @@ class GameScene extends Phaser.Scene {
     });
     this.physics.add.collider(this._player, this._world);
 
-    this.input.on('pointerdown', () => {
+    this.input.on("pointerdown", () => {
+      if (this._player) {
+        this._player.speedUp();
+      }
+    });
+
+    this.input.keyboard.on("keydown", () => {
       if (this._player) {
         this._player.speedUp();
       }

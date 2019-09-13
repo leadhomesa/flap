@@ -13,7 +13,6 @@ class Player extends Phaser.GameObjects.Sprite {
   // variables
   private _currentScene: Phaser.Scene;
   private _tapAcceleration = 50;
-  private _acceleration = 500;
   private _runKey: Phaser.Input.Keyboard.Key;
 
   constructor({ scene, x, y, key }: PlayerOptions) {
@@ -40,22 +39,16 @@ class Player extends Phaser.GameObjects.Sprite {
   }
 
   update(): void {
-    this.handleInput();
+    (this.body as Phaser.Physics.Arcade.Body).setVelocityX(
+      this._tapAcceleration
+    );
+    (this.body as Phaser.Physics.Arcade.Body).setAccelerationX(
+      this._tapAcceleration
+    );
     this.handleAnimations();
   }
 
-  private handleInput() {
-    if (this._runKey && this._runKey.isDown) {
-      (this.body as Phaser.Physics.Arcade.Body).setAccelerationX(
-        this._acceleration
-      );
-    } else {
-      (this.body as Phaser.Physics.Arcade.Body).setVelocityX(this._tapAcceleration);
-      (this.body as Phaser.Physics.Arcade.Body).setAccelerationX(this._tapAcceleration);
-    }
-  }
-
-  speedUp():void {
+  speedUp(): void {
     if (this._tapAcceleration < 500) {
       this._tapAcceleration += 50;
     }
