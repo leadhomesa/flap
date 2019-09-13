@@ -25,10 +25,20 @@ class GameScene extends Phaser.Scene {
     background.displayWidth = window.innerWidth;
   }
 
+  private createBackgrounds():void {
+    const minWidth = 1280;
+    const width = window.innerWidth * 2;
+    const mapWidth = width < minWidth ? minWidth : width;
+
+    const numberOfBackgrounds = mapWidth % window.innerWidth;
+    for (let index = 0; index < numberOfBackgrounds; index++) {
+      this.createBackground(index * window.innerWidth);      
+    }
+  }
+
   create(): void {
     // background
-    this.createBackground();
-    this.createBackground(window.innerWidth);
+    this.createBackgrounds();
 
     // world
     this._world = new World(this);

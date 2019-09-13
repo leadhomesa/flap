@@ -5,9 +5,12 @@ class World extends Phaser.GameObjects.Rectangle {
   private _currentScene: Phaser.Scene
 
   constructor(scene: Phaser.Scene) {
+    const minWidth = 1280;
     const width = window.innerWidth * 2;
+    const mapWidth = width < minWidth ? minWidth : width;
     const height = window.innerHeight * 0.15;
-    super(scene, 0, window.innerHeight, width, height, Colors.white);
+    
+    super(scene, 0, window.innerHeight, mapWidth, height, Colors.white);
     
     this.setOrigin(0, 1);
     this._currentScene = scene;
