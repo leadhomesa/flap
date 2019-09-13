@@ -15,3 +15,6 @@ npm start
 ```
 npm run build
 ```
+
+## Authors
+* [Francois](https://github.com/fjlaubscher) - Maintainer
