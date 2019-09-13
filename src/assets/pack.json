@@ -12,6 +12,11 @@
         "url": "/assets/buildings.png"
       },
       {
+        "type": "image",
+        "key": "podium",
+        "url": "/assets/podium.png"
+      },
+      {
         "type": "json",
         "key": "animationJson",
         "url": "/assets/animations.json"
@@ -20,6 +25,15 @@
         "type": "spritesheet",
         "key": "leadhomie",
         "url": "/assets/leadhomie.png",
+        "frameConfig": {
+          "frameWidth": 256,
+          "frameHeight": 256
+        }
+      },
+      {
+        "type": "spritesheet",
+        "key": "leadhomie-won",
+        "url": "/assets/leadhomie-won.png",
         "frameConfig": {
           "frameWidth": 256,
           "frameHeight": 256

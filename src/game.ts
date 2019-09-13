@@ -3,6 +3,7 @@ import Phaser from "phaser";
 // scenes
 import BootScene from "./scenes/boot";
 import GameScene from "./scenes/game";
+import ScoreScene from "./scenes/score";
 
 const config: Phaser.Types.Core.GameConfig = {
   title: "Leadhome racing boi",
@@ -15,7 +16,7 @@ const config: Phaser.Types.Core.GameConfig = {
       gravity: { y: 200 }
     }
   },
-  scene: [BootScene, GameScene]
+  scene: [BootScene, GameScene, ScoreScene]
 };
 
 class Game extends Phaser.Game {

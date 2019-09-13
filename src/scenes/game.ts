@@ -37,6 +37,14 @@ class GameScene extends Phaser.Scene {
     }
   }
 
+  preload(): void {
+    const banner = document.getElementById("bannerText");
+    if (banner) {
+      const isMobile = window.innerWidth <= 1024;
+      banner.innerText = isMobile ? "Tap the screen!" : "Press space bar!";
+    }
+  }
+
   create(): void {
     // background
     this.createBackgrounds();
@@ -88,6 +96,12 @@ class GameScene extends Phaser.Scene {
   update(): void {
     if (this._player) {
       this._player.update();
+
+      if (this._world) {
+        if (this._player.x >= this._world.width) {
+          this.scene.start("ScoreScene");
+        }
+      }
     }
 
     this._enemies.forEach(enemy => enemy.update());

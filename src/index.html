@@ -8,9 +8,31 @@
 			margin: 0;
 			height: 100%;
 		}
+
+    body {
+      position: relative;
+      font-family: 'Press Start 2P', Arial, Helvetica, sans-serif;
+    }
+
+    .banner {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      color: #FF6A70;
+      z-index: 10;
+    }
+
+    .banner h1 {
+      text-align: center;
+      padding: 1rem;
+    }
   </style>
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
   <base href='<%= htmlWebpackPlugin.options.publicPath %>'>
   </head>
   <body>
+    <div class='banner'><h1 id='bannerText'>Press space bar!</h1></div>
   </body>
 </html>

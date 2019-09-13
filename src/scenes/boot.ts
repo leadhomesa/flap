@@ -25,6 +25,11 @@ class BootScene extends Phaser.Scene {
   }
 
   preload(): void {
+    const banner = document.getElementById("bannerText");
+    if (banner) {
+      banner.innerText = "Loading!";
+    }
+
     this.cameras.main.setBackgroundColor(Colors.storm);
     this.createLoadingGraphics();
 

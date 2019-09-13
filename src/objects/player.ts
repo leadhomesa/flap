@@ -5,6 +5,7 @@ interface PlayerOptions {
   x: number;
   y: number;
   key: string;
+  done?: boolean;
 }
 
 const STILL_FRAME = 3;
@@ -13,13 +14,13 @@ class Player extends Phaser.GameObjects.Sprite {
   // variables
   private _currentScene: Phaser.Scene;
   private _tapAcceleration = 50;
-  private _runKey: Phaser.Input.Keyboard.Key;
+  private _done = false;
 
-  constructor({ scene, x, y, key }: PlayerOptions) {
+  constructor({ scene, x, y, key, done }: PlayerOptions) {
     super(scene, x, y, key, STILL_FRAME);
 
     this._currentScene = scene;
-    this._runKey = this.addKey("SPACE");
+    this._done = done || false;
     this.initSprite();
     this._currentScene.add.existing(this);
   }
@@ -27,24 +28,21 @@ class Player extends Phaser.GameObjects.Sprite {
   private initSprite() {
     // sprite
     this.setOrigin(0, 1);
-    // this.setScale(0.75, 0.75);
 
     // physics
     this._currentScene.physics.world.enable(this);
     (this.body as Phaser.Physics.Arcade.Body).maxVelocity.x = 500;
   }
 
-  private addKey(key: string): Phaser.Input.Keyboard.Key {
-    return this._currentScene.input.keyboard.addKey(key);
-  }
-
   update(): void {
-    (this.body as Phaser.Physics.Arcade.Body).setVelocityX(
-      this._tapAcceleration
-    );
-    (this.body as Phaser.Physics.Arcade.Body).setAccelerationX(
-      this._tapAcceleration
-    );
+    if (!this._done) {
+      (this.body as Phaser.Physics.Arcade.Body).setVelocityX(
+        this._tapAcceleration
+      );
+      (this.body as Phaser.Physics.Arcade.Body).setAccelerationX(
+        this._tapAcceleration
+      );
+    }
     this.handleAnimations();
   }
 
@@ -63,9 +61,12 @@ class Player extends Phaser.GameObjects.Sprite {
         this.anims.play("leadhomie-run", true);
       }
     } else {
-      // mario is standing still
-      this.anims.stop();
-      this.setFrame(STILL_FRAME);
+      if (!this._done) {
+        this.anims.stop();
+        this.setFrame(STILL_FRAME);
+      } else {
+        this.anims.play("leadhomie-won", true);
+      }
     }
   }
 }
