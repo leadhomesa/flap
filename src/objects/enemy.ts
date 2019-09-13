@@ -8,7 +8,6 @@ interface EnemyOptions {
 }
 
 class Enemy extends Sign {
-  // variables
   constructor({ scene, x, y, key }: EnemyOptions) {
     const speedVariant = Math.random() * 50;
     super({
