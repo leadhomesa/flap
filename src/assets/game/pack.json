@@ -4,27 +4,27 @@
       {
         "type": "image",
         "key": "cloud",
-        "url": "/assets/cloud.png"
+        "url": "/game/cloud.png"
       },
       {
         "type": "image",
         "key": "background",
-        "url": "/assets/buildings.png"
+        "url": "/game/buildings.png"
       },
       {
         "type": "image",
         "key": "podium",
-        "url": "/assets/podium.png"
+        "url": "/game/podium.png"
       },
       {
         "type": "json",
         "key": "animationJson",
-        "url": "/assets/animations.json"
+        "url": "/game/animations.json"
       },
       {
         "type": "spritesheet",
         "key": "leadhomie",
-        "url": "/assets/leadhomie.png",
+        "url": "/game/leadhomie.png",
         "frameConfig": {
           "frameWidth": 256,
           "frameHeight": 256
@@ -33,7 +33,7 @@
       {
         "type": "spritesheet",
         "key": "leadhomie-won",
-        "url": "/assets/leadhomie-won.png",
+        "url": "/game/leadhomie-won.png",
         "frameConfig": {
           "frameWidth": 256,
           "frameHeight": 256
@@ -42,7 +42,7 @@
       {
         "type": "spritesheet",
         "key": "sign-1",
-        "url": "/assets/sign-1.png",
+        "url": "/game/sign-1.png",
         "frameConfig": {
           "frameWidth": 256,
           "frameHeight": 256
@@ -51,7 +51,7 @@
       {
         "type": "spritesheet",
         "key": "sign-2",
-        "url": "/assets/sign-2.png",
+        "url": "/game/sign-2.png",
         "frameConfig": {
           "frameWidth": 256,
           "frameHeight": 256
@@ -60,7 +60,7 @@
       {
         "type": "spritesheet",
         "key": "sign-3",
-        "url": "/assets/sign-3.png",
+        "url": "/game/sign-3.png",
         "frameConfig": {
           "frameWidth": 256,
           "frameHeight": 256

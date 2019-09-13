@@ -46,7 +46,7 @@ module.exports = {
       root: path.resolve(__dirname, "../")
     }),
     new CopyWebpackPlugin([
-      { from: assetsPath, to: path.join(buildPath, "assets") }
+      { from: assetsPath, to: buildPath }
     ]),
     new webpack.DefinePlugin({
       CANVAS_RENDERER: JSON.stringify(true),

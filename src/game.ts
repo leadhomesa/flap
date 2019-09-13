@@ -6,7 +6,6 @@ import GameScene from "./scenes/game";
 import ScoreScene from "./scenes/score";
 
 const config: Phaser.Types.Core.GameConfig = {
-  title: "Leadhome racing boi",
   type: Phaser.AUTO,
   width: window.innerWidth,
   height: window.innerHeight,

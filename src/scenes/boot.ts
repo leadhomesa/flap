@@ -65,7 +65,7 @@ class BootScene extends Phaser.Scene {
     );
 
     // load our package
-    this.load.pack("assets", "/assets/pack.json");
+    this.load.pack("assets", "/game/pack.json");
   }
 
   update(): void {
